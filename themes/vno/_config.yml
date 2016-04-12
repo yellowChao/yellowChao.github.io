@@ -1,0 +1,27 @@
+menu:
+  #Archives: /archives
+  项目作品: https://github.com/yellowChao
+  关于我: /aboutme
+
+description: 一位漂泊在北京的重庆崽儿，iOS、Node.js 开发者
+social:
+  weibo: http://weibo.com/soidsnake
+  github: https://github.com/yellowChao
+
+page_comment: false
+logo: /images/me.jpg
+background:
+  cover: /images/background-cover.jpg
+  color: cover-blue
+
+archive_date_format: MMM DD
+fancybox: true
+
+duoshuo_shortname: yellowchao
+
+google_analytics: UA-42596364-1
+favicon: /images/me.jpg
+
+# Links#外链
+links:
+  jianshu: http://upload-images.jianshu.io
