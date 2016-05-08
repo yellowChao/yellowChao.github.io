@@ -1,10 +1,9 @@
 ---
 title: 我的Swift学习之路(六)--条件编译
+date:  2016-05-09 00:33:22
 tags:
     - Swift
 ---
-
-# 条件编译
 
 >在 C 系语言中，可以使用 #if 或者 #ifdef 之类的编译条件分支来控制哪些代码需要编译，而哪些代码不需要。Swift 中没有宏定义的概念，因此我们不能使用 #ifdef 的方法来检查某个符号是否经过宏定义。但是为了控制编译流程和内容，Swift 还是为我们提供了几种简单的机制来根据需求定制编译内容的。
 
@@ -12,8 +11,6 @@ tags:
 在我们自己的**MedClipper**项目中使用了很多的条件编译，使得我们在不同的环境下有不同的逻辑处理。
 
 ### 首先来看下如何在Swift下如何定义编译条件
-
-我的Swift学习之路(六)--条件编译
 
 ![](/images/swiftFlag.png)
 
@@ -95,13 +92,13 @@ func setupAddSyncButtonForTest() {
 
 ```swift
 guard #available(iOS 9, *) else {
-    return 
+    return
 }
 //do something in iOS 9
 ```
 
 > 其中 iOS 9 表示必须在 iOS 9 版本以上才可用，另外一个特性参数：星号（*），表示包含了所有平台，目前有以下几个平台：
-> 
+>
 * iOS
 * iOSApplicationExtension
 * OSX
@@ -114,4 +111,3 @@ guard #available(iOS 9, *) else {
 >一般来讲，如果没有特殊的情况，都使用 * 表示全平台。
 
 言而总之，总而言之。条件编译能让我们在测试，开发中便利，提高效率，更多的使用场景等待你的挖掘，如果你是一个非常野路子(湖南话)的选手的话 😃
-
