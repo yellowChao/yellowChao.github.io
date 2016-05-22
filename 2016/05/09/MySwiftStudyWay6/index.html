@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>我的Swift学习之路(六)--条件编译 | yellowChao</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="一位漂泊在北京的重庆崽儿，iOS、Node.js 开发者">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="我的Swift学习之路(六)--条件编译 | yellowChao">
+    <meta name="twitter:description" content="一位漂泊在北京的重庆崽儿，iOS、Node.js 开发者">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="我的Swift学习之路(六)--条件编译 | yellowChao">
+    <meta property="og:description" content="一位漂泊在北京的重庆崽儿，iOS、Node.js 开发者">
+
+    
+    <meta name="author" content="黄智超">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/me.jpg">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+
+    <link rel="canonical" href="http://yoursite.com/2016/05/09/MySwiftStudyWay6/"/>
+
+    
+</head>
+
+<body class="home-template no-js">
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 yellowChao 的主页"><img src="/images/me.jpg" width="80" alt="yellowChao logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for yellowChao">yellowChao</a></h1>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">一位漂泊在北京的重庆崽儿，iOS、Node.js 开发者</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="访问博客" class="blog-button">博客</a></li>
+            
+              <li class="navigation__item"><a href="https://github.com/yellowChao">项目作品</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="http://weibo.com/soidsnake" title="我的微博" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/yellowChao" title="查看我的GitHub主页" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2016-05-08T16:33:22.000Z" class="post-list__meta--date date">2016-05-09</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/Swift/">Swift</a>
+</span>
+    </div>
+    <h1 class="post-title">我的Swift学习之路(六)--条件编译</h1>
+  </header>
+
+  <section class="post">
+    <blockquote>
+<p>在 C 系语言中，可以使用 #if 或者 #ifdef 之类的编译条件分支来控制哪些代码需要编译，而哪些代码不需要。Swift 中没有宏定义的概念，因此我们不能使用 #ifdef 的方法来检查某个符号是否经过宏定义。但是为了控制编译流程和内容，Swift 还是为我们提供了几种简单的机制来根据需求定制编译内容的。</p>
+</blockquote>
+<p>在我们自己的<strong>MedClipper</strong>项目中使用了很多的条件编译，使得我们在不同的环境下有不同的逻辑处理。</p>
+<h3 id="首先来看下如何在Swift下如何定义编译条件"><a href="#首先来看下如何在Swift下如何定义编译条件" class="headerlink" title="首先来看下如何在Swift下如何定义编译条件"></a>首先来看下如何在Swift下如何定义编译条件</h3><p><img src="/images/swiftFlag.png" alt=""></p>
+<blockquote>
+<p>具体步骤:”Build Setting”–&gt;“Swift Compiler-Custom Flags”–&gt;“Other Swift Flags”–&gt;“Debug”中添加所需要的配置选项。如我们想添加常用的DEGUB选项，则可以在此加上”-D DEBUG”。这样我们就可以在代码中来执行一些debug与release时不同的操作</p>
+</blockquote>
+<p><strong>条件编译</strong>具体项目中的一些使用场景</p>
+<ul>
+<li>针对集成第三方推送服务各个环境下的配置</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">keyLocalytics</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">        #<span class="keyword">if</span> <span class="type">PRODUCT</span></span><br><span class="line">            <span class="keyword">return</span> keyLocalyticsProduct</span><br><span class="line">        #endif</span><br><span class="line">        #<span class="keyword">if</span> <span class="type">STAGING_PRO</span></span><br><span class="line">            <span class="type">Localytics</span>.setLoggingEnabled(<span class="literal">true</span>)</span><br><span class="line">            <span class="keyword">return</span> keyLocalyticsStagingPro</span><br><span class="line">        #endif</span><br><span class="line">        #<span class="keyword">if</span> <span class="type">STAGING_DEV</span> || <span class="type">BEAT</span></span><br><span class="line">            <span class="type">Localytics</span>.setLoggingEnabled(<span class="literal">true</span>)</span><br><span class="line">            <span class="keyword">return</span> keyLocalyticsStagingDev</span><br><span class="line">        #endif</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>条件编译中也可以使用逻辑运算符&amp;&amp;和||以及!，来达到多条件组合</p>
+</blockquote>
+<ul>
+<li>在测试环境下显式的展现某种自动触发的功能，方便测试人员和开发人员使用（如:数据同步）</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line">#<span class="keyword">if</span> !<span class="type">PRODUCT</span></span><br><span class="line">	setupAddSyncButtonForTest()</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setupAddSyncButtonForTest</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">let</span> syncItem = <span class="type">UIBarButtonItem</span>(title: <span class="string">"Sync"</span>, style: <span class="type">UIBarButtonItemStyle</span>.<span class="type">Plain</span>, target: <span class="keyword">self</span>, action: #selector(<span class="type">PatientListViewController</span>.clickSync))</span><br><span class="line">        <span class="keyword">self</span>.navigationItem.rightBarButtonItems?.append(syncItem)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>真机测试中以本地服务器作为测试时，自定义当前服务器的IP地址(而不是通过查看网络查看IP地址来手动更改代码中指定的值)</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">changeIpIfBeta</span><span class="params">()</span></span> &#123;</span><br><span class="line">    #<span class="keyword">if</span> <span class="type">BETA</span></span><br><span class="line">        <span class="keyword">let</span> button = <span class="type">UIButton</span>(type: .<span class="type">Custom</span>)</span><br><span class="line">        button.setTitle(<span class="string">"CustomIP"</span>, forState: .<span class="type">Normal</span>)</span><br><span class="line">        button.setTitleColor(<span class="type">UIColor</span>.blueColor(), forState: .<span class="type">Normal</span>)</span><br><span class="line">        button.titleLabel?.font = <span class="type">UIFont</span>.boldSystemFontOfSize(<span class="number">18</span>)</span><br><span class="line">        button.frame = <span class="type">CGRect</span>(x: <span class="number">10</span>, y: <span class="number">20</span>, width: <span class="number">0</span>, height: <span class="number">0</span>)</span><br><span class="line">        button.sizeToFit()</span><br><span class="line">        button.addTarget(<span class="keyword">self</span>, action: #selector(changeIpTapped), forControlEvents: .<span class="type">TouchUpInside</span>)</span><br><span class="line">        <span class="keyword">self</span>.view.addSubview(button)</span><br><span class="line">    #endif</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#<span class="keyword">if</span> <span class="type">BETA</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">changeIpTapped</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">let</span> alert = <span class="type">UIAlertController</span>(title: <span class="string">"更改IP"</span>, message: <span class="string">"当前：<span class="subst">\(ipAddress)</span>"</span>, preferredStyle: .<span class="type">Alert</span>)</span><br><span class="line">    alert.addTextFieldWithConfigurationHandler &#123; (textField) <span class="keyword">in</span></span><br><span class="line">        textField.text = ipAddress</span><br><span class="line">    &#125;</span><br><span class="line">    alert.addAction(<span class="type">UIAlertAction</span>(title: <span class="string">"确定"</span>, style: .<span class="type">Default</span>) &#123; (action) <span class="keyword">in</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> text = alert.textFields?[<span class="number">0</span>].text &#123;</span><br><span class="line">            ipAddress = text</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    alert.addAction(<span class="type">UIAlertAction</span>(title: <span class="string">"取消"</span>, style: .<span class="type">Cancel</span>) &#123; <span class="number">_</span> <span class="keyword">in</span> &#125;)</span><br><span class="line">    presentViewController(alert, animated: <span class="literal">true</span>, completion: <span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Swift2.0中推出的版本判断</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">guard</span> #available(iOS <span class="number">9</span>, *) <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//do something in iOS 9</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>其中 iOS 9 表示必须在 iOS 9 版本以上才可用，另外一个特性参数：星号（*），表示包含了所有平台，目前有以下几个平台：</p>
+<ul>
+<li>iOS</li>
+<li>iOSApplicationExtension</li>
+<li>OSX</li>
+<li>OSXApplicationExtension</li>
+<li>watchOS</li>
+<li>watchOSApplicationExtension</li>
+<li>tvOS</li>
+<li>tvOSApplicationExtension</li>
+</ul>
+<p>一般来讲，如果没有特殊的情况，都使用 * 表示全平台。</p>
+</blockquote>
+<p>言而总之，总而言之。条件编译能让我们在测试，开发中便利，提高效率，更多的使用场景等待你的挖掘，如果你是一个非常野路子(湖南话)的选手的话 😃</p>
+
+  </section>
+
+</article>
+
+
+<section class="post-comments">
+  <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="http://yoursite.com/2016/05/09/MySwiftStudyWay6/" data-title="我的Swift学习之路(六)--条件编译" data-url="http://yoursite.com/2016/05/09/MySwiftStudyWay6/"></div>
+  <!-- 多说评论框 end -->
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:"yellowchao"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</section>
+
+
+
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    </span>
+    <span class="footer__copyright">
+        基于 <a href="http://hexo.io">Hexo</a> 搭建，感谢 <a href="https://pages.github.com/">GitHub Pages</a> 提供免费的托管服务
+    </span>
+    <span class="footer__copyright">
+        &copy; 2016 - 本站由 <a href="/">@Longbo Ma</a> 创建,
+        使用<a href="https://github.com/lenbo-ma/hexo-theme-vno">hexo-theme-vno</a>主题
+    </span>
+</footer>
+
+        </div>
+    </div>
+
+    <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-42596364-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>我的Swift学习之路(一)--变量 | yellowChao</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="一位漂泊在北京的重庆崽儿，iOS、Node.js 开发者">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="我的Swift学习之路(一)--变量 | yellowChao">
+    <meta name="twitter:description" content="一位漂泊在北京的重庆崽儿，iOS、Node.js 开发者">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="我的Swift学习之路(一)--变量 | yellowChao">
+    <meta property="og:description" content="一位漂泊在北京的重庆崽儿，iOS、Node.js 开发者">
+
+    
+    <meta name="author" content="黄智超">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/me.jpg">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+
+    <link rel="canonical" href="http://yoursite.com/2016/05/23/MySwiftStudyWay1/"/>
+
+    
+</head>
+
+<body class="home-template no-js">
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 yellowChao 的主页"><img src="/images/me.jpg" width="80" alt="yellowChao logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for yellowChao">yellowChao</a></h1>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">一位漂泊在北京的重庆崽儿，iOS、Node.js 开发者</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="访问博客" class="blog-button">博客</a></li>
+            
+              <li class="navigation__item"><a href="https://github.com/yellowChao">项目作品</a></li>
+            
+              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+  <li class="navigation__item">
+    <a href="http://weibo.com/soidsnake" title="我的微博" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li> 
+
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/yellowChao" title="查看我的GitHub主页" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-blue"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2016-05-22T17:40:20.000Z" class="post-list__meta--date date">2016-05-23</time> &#8226; <span class="post-meta__tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/Swift/">Swift</a>
+</span>
+    </div>
+    <h1 class="post-title">我的Swift学习之路(一)--变量</h1>
+  </header>
+
+  <section class="post">
+    <p><strong>因为公司要求我们员工进行双周技术分享，所以不得不将将学习的知识以书面的形式记录下来。当然既要完成这个硬性要求，也要在完成这个任务的同时有收获，在接下来的日子里，我会定期更新这个系列的文章，也非常欢迎看官们提出意见，我会在下一期改进！</strong></p>
+<blockquote>
+<p>Swift是一种新的编程语言，用于编写iOS和OS X应用。Swift结合了C和Objective-C的优点并且不受C兼容性的限制。Swift采用安全的编程模式并添加了很多新特性，这将使编程更简单，更灵活，也更有趣。Swift是基于成熟而且倍受喜爱得Cocoa和Cocoa Touch框架，他的降临将重新定义软件开发。</p>
+</blockquote>
+<p><strong>Objective-C和Swift的对比</strong></p>
+<ul>
+<li>在 Swift 中没有了 <code>main.m</code>，<code>@UIApplicationMain</code> 是程序入口</li>
+<li>在 Swift 中只有 <code>.swift</code> 文件，没有 <code>.h/.m</code> 文件的区分</li>
+<li>在 Swift 中，一个类就是用一对 <code>{}</code> 括起的，没有 <code>@implementation</code> 和 <code>@end</code></li>
+<li><p>每个语句的末尾没有分号，在其他语言中，分号是用来区分不同语句的</p>
+<ul>
+<li>在 Swift 中，一般都是一行一句代码，因此不用使用分号</li>
+</ul>
+</li>
+<li><p>与 OC 的语法快速对比</p>
+<ul>
+<li>在 OC 中 <code>alloc / init</code> 对应 <code>()</code></li>
+<li>在 OC 中 <code>alloc / initWithXXX</code> 对应 <code>(XXX: )</code></li>
+<li>在 OC 中的类函数调用，在 Swift 中，直接使用 <code>.</code></li>
+<li>在 Swift 中，绝大多数可以省略 <code>self.</code>，建议一般不写，可以提高对语境的理解（闭包时会体会到）</li>
+<li>在 OC 中的 枚举类型使用 <code>UIButtonTypeContactAdd</code>，而 Swift 中分开了，操作热键：<code>回车 -&gt; 向右 -&gt; .</code></li>
+<li>Swift 中，枚举类型的前缀可以省略，如：<code>.ContactAdd</code>，但是：很多时候没有智能提示</li>
+<li>监听方法，直接使用字符串引起</li>
+<li>在 Swift 中使用 <code>print()</code> 替代 OC 中的 <code>NSLog</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="1-变量和常量"><a href="#1-变量和常量" class="headerlink" title="1.变量和常量"></a>1.变量和常量</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
+<li><code>let</code> 定义常量，一经赋值不允许再修改</li>
+<li><code>var</code> 定义变量，赋值之后仍然可以修改</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">//: # 常量</span></span><br><span class="line"><span class="comment">//: 定义常量并且直接设置数值</span></span><br><span class="line"><span class="keyword">let</span> x = <span class="number">20</span></span><br><span class="line"><span class="comment">//: 常量数值一经设置，不能修改，以下代码会报错</span></span><br><span class="line"><span class="comment">// x = 30</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//: 使用 `: 类型`，仅仅只定义类型，而没有设置数值</span></span><br><span class="line"><span class="keyword">let</span> x1: <span class="type">Int</span></span><br><span class="line"><span class="comment">//: 常量有一次设置数值的机会，以下代码没有问题，因为 x1 还没有被设置数值</span></span><br><span class="line">x1 = <span class="number">30</span></span><br><span class="line"><span class="comment">//: 一旦设置了数值之后，则不能再次修改，以下代码会报错，因为 x1 已经被设置了数值</span></span><br><span class="line"><span class="comment">// x1 = 50</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//: # 变量</span></span><br><span class="line"><span class="comment">//: 变量设置数值之后，可以继续修改数值</span></span><br><span class="line"><span class="keyword">var</span> y = <span class="number">200</span></span><br><span class="line">y = <span class="number">300</span></span><br></pre></td></tr></table></figure>
+<h3 id="自动推导"><a href="#自动推导" class="headerlink" title="自动推导"></a>自动推导</h3><ul>
+<li>Swift能够根据右边的代码，推导出变量的准确类型</li>
+<li>通常在开发时，不需要指定变量的类型</li>
+<li>如果要指定变量，可以在变量名后使用:，然后跟上变量的类型</li>
+</ul>
+<blockquote>
+<p>重要技巧：Option + Click 可以查看变量的类型</p>
+</blockquote>
+<h3 id="没有隐式转换！！！"><a href="#没有隐式转换！！！" class="headerlink" title="没有隐式转换！！！"></a>没有隐式转换！！！</h3><ul>
+<li>Swift 对数据类型要求异常严格</li>
+<li>任何时候，都不会做隐式转换</li>
+</ul>
+<blockquote>
+<p>如果要对不同类型的数据进行计算，必须要显式的转换</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> x2 = <span class="number">100</span></span><br><span class="line"><span class="keyword">let</span> y2 = <span class="number">10.5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> num1 = <span class="type">Double</span>(x2) + y2</span><br><span class="line"><span class="keyword">let</span> num2 = x2 + <span class="type">Int</span>(y2)</span><br></pre></td></tr></table></figure>
+<h3 id="let-amp-var-的选择"><a href="#let-amp-var-的选择" class="headerlink" title="let &amp; var 的选择"></a>let &amp; var 的选择</h3><ul>
+<li><strong>应该尽量先选择常量</strong>，只有在必须修改时，才需要修改为 <code>var</code></li>
+<li>在 Xcode7中，如果没有修改变量，Xcode 会提示修改为 <code>let</code></li>
+</ul>
+<h2 id="2-Optional可选值"><a href="#2-Optional可选值" class="headerlink" title="2.Optional可选值"></a>2.Optional可选值</h2><ul>
+<li><code>Optional</code> 是 Swift 的一大特色，也是 Swift 初学者最容易困惑的问题</li>
+<li>定义变量时，如果指定是<code>可选的</code>，表示该变量<code>可以有一个指定类型的值，也可以是 nil</code></li>
+<li>定义变量时，在类型后面添加一个 <code>?</code>，表示该变量是可选的</li>
+<li>变量可选项的默认值是 <code>nil</code></li>
+<li>常量可选项没有默认值，主要用于在构造函数中给常量设置初始数值</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">//: num 可以是一个整数，也可以是 nil，注意如果为 nil，不能参与计算</span></span><br><span class="line"><span class="keyword">let</span> num: <span class="type">Int</span>? = <span class="number">10</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果 Optional 值是 <code>nil</code>，不允许参与计算</li>
+<li>只有<code>解包(unwrap)</code>后才能参与计算</li>
+<li>在变量后添加一个 <code>!</code>，可以强行解包</li>
+</ul>
+<blockquote>
+<p>注意：必须要确保解包后的值不是 nil，否则会报错</p>
+</blockquote>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="comment">//: num 可以是一个整数，也可以是 nil，注意如果为 nil，不能参与计算</span></span><br><span class="line"><span class="keyword">let</span> num: <span class="type">Int</span>? = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//: 如果 num 为 nil，使用 `!` 强行解包会报错</span></span><br><span class="line"><span class="keyword">let</span> r1 = num! + <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//: 使用以下判断，当 num 为 nil 时，if 分支中的代码不会执行</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> n = num &#123;</span><br><span class="line">    <span class="keyword">let</span> r = n + <span class="number">10</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h3><p><code>unexpectedly found nil while unwrapping an Optional value</code></p>
+<p>翻译</p>
+<p><code>在[解包]一个可选值时发现 nil</code></p>
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="?? 运算符"></a><code>??</code> 运算符</h3><ul>
+<li><code>??</code> 运算符可以用于判断 <code>变量/常量</code> 的数值是否是 <code>nil</code>，如果是则使用后面的值替代</li>
+<li>在使用 Swift 开发时，<code>??</code> 能够简化代码的编写</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> num: <span class="type">Int</span>? = <span class="literal">nil</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> r1 = (num ?? <span class="number">0</span>) + <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(r1)</span><br></pre></td></tr></table></figure>
+
+  </section>
+
+</article>
+
+
+<section class="post-comments">
+  <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="http://yoursite.com/2016/05/23/MySwiftStudyWay1/" data-title="我的Swift学习之路(一)--变量" data-url="http://yoursite.com/2016/05/23/MySwiftStudyWay1/"></div>
+  <!-- 多说评论框 end -->
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:"yellowchao"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+</section>
+
+
+
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    </span>
+    <span class="footer__copyright">
+        基于 <a href="http://hexo.io">Hexo</a> 搭建，感谢 <a href="https://pages.github.com/">GitHub Pages</a> 提供免费的托管服务
+    </span>
+    <span class="footer__copyright">
+        &copy; 2016 - 本站由 <a href="/">@Longbo Ma</a> 创建,
+        使用<a href="https://github.com/lenbo-ma/hexo-theme-vno">hexo-theme-vno</a>主题
+    </span>
+</footer>
+
+        </div>
+    </div>
+
+    <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-42596364-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>
