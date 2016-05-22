@@ -73,6 +73,6 @@ deploy:
     type: git
     message: "update"
     repository: https://github.com/yellowChao/yellowChao.github.io
-    branch: code
+    branch: master
 
 duoshuo_shortname: yellowchao

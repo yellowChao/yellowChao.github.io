@@ -76,7 +76,8 @@ dispatch_async(dispatch_get_global_queue(0, 0)) {
 
 > 注意：`dispatch_barrier_async` 必须使用自定义队列，否则执行效果和全局队列一致
 
-##代码演练
+
+### 代码演练
 ```Swift
 let asyncQueue = dispatch_queue_create("test_barrier", DISPATCH_QUEUE_CONCURRENT)
 	dispatch_async(asyncQueue) {
@@ -88,7 +89,7 @@ let asyncQueue = dispatch_queue_create("test_barrier", DISPATCH_QUEUE_CONCURRENT
 	}
 	dispatch_async(asyncQueue) {
 	  print(3)
-		}
+	}
 }
 ```
 
