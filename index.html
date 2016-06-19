@@ -134,24 +134,19 @@
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2016/05/23/MySwiftStudyWay2/" title="link to post.title">我的Swift学习之路(二)--控制流</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2016/06/19/MySwiftStudyWay8/" title="link to post.title">我的Swift学习之路(八)--多线程编程(二)</a></h2>
       <p class="excerpt">
     
-      
-本期为带来Swift中对程序流程的控制。个人感觉Swift流程控制的代码写法更加简洁方便，而且可读性高更加优美了有没有？=￣ω￣=
+      NSOperation 核心概念
+在iOS开发中，为了提升用户体验，我们通常会将操作耗时的操作放在主线程之外的线程进行处理。对于正常的简单操作，我们更多的是选择代码更少的GCD，让我们专注于自己的业务逻辑开发。NSOperation在ios4后也基于GCD实现，但是相对于GCD来说可控性更强，并且可以加入操作依赖。NSOperation是对GCD面向对象的ObjC封装，建议如果任务之间有依赖关系或者想要监听任务完成状态的情况下优先选择NSOperation否则使用GCD。
 
-if
-Swift 中没有 C 语言中的非零即真概念
-在逻辑判断时必须显示地指明具体的判断条件 true / false
-if 语句条件的 () 可以省略
-但是 {} 不能省略
 
-let num = 200if num &amp;lt; 10 &amp;#123;    print(&quot;比 10 小&quot;)&amp;#125; else if num &amp;gt; 100 &amp;#123;    pr
+NSOperati
     &hellip;
       </p>
-      <div class="post-list__meta"><time datetime="2016-05-22T18:02:06.000Z" class="post-list__meta--date date">2016-05-23</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
+      <div class="post-list__meta"><time datetime="2016-06-19T13:49:15.000Z" class="post-list__meta--date date">2016-06-19</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
   <a class="tag-link" href="/tags/Swift/">Swift</a>
-</span><a class="btn-border-small" href="/2016/05/23/MySwiftStudyWay2/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2016/06/19/MySwiftStudyWay8/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
@@ -198,39 +193,24 @@ sum = 0for i in 0...10 &amp;#123;    sum += i&amp;#125;print
   
     
     <li>
-      <h2 class="post-list__post-title post-title"><a href="/2016/05/23/MySwiftStudyWay5/" title="link to post.title">我的Swift学习之路(五)--面向对象</a></h2>
+      <h2 class="post-list__post-title post-title"><a href="/2016/05/23/MySwiftStudyWay2/" title="link to post.title">我的Swift学习之路(二)--控制流</a></h2>
       <p class="excerpt">
     
-      目标
-构造函数
-构造函数的基本概念
-构造函数的执行顺序
-KVC 在构造函数中的使用及原理
-便利构造函数
-析构函数
-区分 重载 和 重写
+      
+本期为带来Swift中对程序流程的控制。个人感觉Swift流程控制的代码写法更加简洁方便，而且可读性高更加优美了有没有？=￣ω￣=
 
+if
+Swift 中没有 C 语言中的非零即真概念
+在逻辑判断时必须显示地指明具体的判断条件 true / false
+if 语句条件的 () 可以省略
+但是 {} 不能省略
 
-懒加载
-只读属性（计算型属性）
-
-构造函数基础
-构造函数是一种特殊的函数，主要用来在创建对象时初始化对象，为对象成员变量设置初始值，在 OC 中的构造函数是 initWithXXX，在 Swift 中由于支持函数重载，所有的构造函数都是 init
-
-构造函数的作用
-
-分配空间 alloc
-设置初始值 init
-
-必选属性
-自定义 Person 对象
-
-cla
+let num = 200if num &amp;lt; 10 &amp;#123;    print(&quot;比 10 小&quot;)&amp;#125; else if num &amp;gt; 100 &amp;#123;    pr
     &hellip;
       </p>
       <div class="post-list__meta"><time datetime="2016-05-22T18:02:06.000Z" class="post-list__meta--date date">2016-05-23</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
   <a class="tag-link" href="/tags/Swift/">Swift</a>
-</span><a class="btn-border-small" href="/2016/05/23/MySwiftStudyWay5/">继续阅读</a></div>
+</span><a class="btn-border-small" href="/2016/05/23/MySwiftStudyWay2/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
@@ -266,6 +246,44 @@ fu
       <div class="post-list__meta"><time datetime="2016-05-22T18:02:06.000Z" class="post-list__meta--date date">2016-05-23</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
   <a class="tag-link" href="/tags/Swift/">Swift</a>
 </span><a class="btn-border-small" href="/2016/05/23/MySwiftStudyWay4/">继续阅读</a></div>
+      <hr class="post-list__divider" />
+    </li>
+  
+    
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/2016/05/23/MySwiftStudyWay5/" title="link to post.title">我的Swift学习之路(五)--面向对象</a></h2>
+      <p class="excerpt">
+    
+      目标
+构造函数
+构造函数的基本概念
+构造函数的执行顺序
+KVC 在构造函数中的使用及原理
+便利构造函数
+析构函数
+区分 重载 和 重写
+
+
+懒加载
+只读属性（计算型属性）
+
+构造函数基础
+构造函数是一种特殊的函数，主要用来在创建对象时初始化对象，为对象成员变量设置初始值，在 OC 中的构造函数是 initWithXXX，在 Swift 中由于支持函数重载，所有的构造函数都是 init
+
+构造函数的作用
+
+分配空间 alloc
+设置初始值 init
+
+必选属性
+自定义 Person 对象
+
+cla
+    &hellip;
+      </p>
+      <div class="post-list__meta"><time datetime="2016-05-22T18:02:06.000Z" class="post-list__meta--date date">2016-05-23</time> &#8226; <span class="post-list__meta--tags tags">于&nbsp;
+  <a class="tag-link" href="/tags/Swift/">Swift</a>
+</span><a class="btn-border-small" href="/2016/05/23/MySwiftStudyWay5/">继续阅读</a></div>
       <hr class="post-list__divider" />
     </li>
   
